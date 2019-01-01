@@ -1,0 +1,98 @@
+@model commonroom.Models.Country
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+ <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 400px;
+        width: 400px;
+        border: 1px black solid;
+        border-radius: 45px;
+      }
+      #mapbod{
+        width:90%;
+        margin:auto;
+      }
+      #container{
+        padding:30px;
+        background: rgba(1,1,1,0.3);
+        width: 90%;
+        margin: auto;
+        height:1000px;
+      }
+
+      #col{
+        width: 40%;
+        margin-left:-140px;
+        padding: 30px;
+        border: solid 1px ;
+        width: 300px;
+       
+        border:2px solid rgba(255,255,255,0.3);
+
+      }
+      form{
+         border:2px solid rgba(255,255,255,0.3);
+         padding: 30px;
+         margin-left: 10px;
+         opacity: 0.9;
+         font-family: dekko;
+         letter-spacing: 3px;
+      }
+      #directions-panel{
+        color:white;
+      }
+  .submit { 
+  display: block;
+  width: 80%;
+  padding: .4rem;
+  border: none; 
+  margin: 1rem auto; 
+  font-size: 1.3rem;
+  background: rgba(255,255,255,0.23);
+  color: #fff;
+  border-radius: 3px; 
+  cursor: pointer;
+  transition: .3s background;
+}
+.submit:hover { 
+   background: rgba(0,0,0,0.5);
+}
+    </style>    
+<body>
+
+<div id="container">
+  <div id="mapbod">
+    <div class="row">
+      <div class="col-6">
+        <h3>Create a route for your trip</h3>
+        <div id="map"></div>
+      </div>
+      <div id="col">
+        @if(ViewBag.ThisCountry == 2){
+        <partial name="_BelizePartial" />
+      }
+      @if(ViewBag.ThisCountry == 3){
+        <partial name="_ThailandPartial" />
+      }
+        @if(ViewBag.ThisCountry == 4){
+        <partial name="_ItalyPartial" />
+      }
+        @if(ViewBag.ThisCountry == 5){
+        <partial name="_LithuaniaPartial" />
+      }
+        @if(ViewBag.ThisCountry == 6){
+        <partial name="_IndiaPartial" />
+      }
+        @if(ViewBag.ThisCountry == 7){
+        <partial name="_EnglandPartial" />
+      }
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+
+</body>

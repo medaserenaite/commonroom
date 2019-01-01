@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+
+<style>
+      body{
+        background-color: rgba(0, 0, 0, 0.8)
+    }
+    label{
+      color:white;
+      font-family: dekko;
+    }
+i, b{
+  color: white;
+  font-family: dekko;
+  letter-spacing: 3px;
+}
+
+
+</style>    
+
+  </head>
+  <div id="mapbod">
+    <div class="col-8">
+
+      <b>Start:</b>
+      <select id="start">
+        <option value="Belize City, BZ">Belize City</option><br>
+        <option value="Belmopan, BZ">Belmopan</option><br>
+        <option value="Orange Walk, BZ">Orange Walk</option><br>
+        <option value="San Ignacio, BZ">San Ignacio</option><br>
+        <option value="Caye Caulker, BZ">Caye Caulker</option><br>
+        <option value="San Pedro, BZ">San Pedro</option><br>
+      </select>
+      <b>Second Stop:</b> <br>
+      <select multiple id="waypoints">
+        <option value="Belize City, BZ">Belize City</option>
+        <option value="Belmopan, BZ">Belmopan</option>
+        <option value="Orange Walk, BZ">Orange Walk</option>
+        <option value="San Ignacio, BZ">San Ignacio</option>
+        <option value="Caye Caulker, BZ">Caye Caulker</option>
+        <option value="San Pedro, BZ">San Pedro</option>
+      </select>
+      <br>
+      <b>End:</b>
+      <select id="end">
+        <option value="Belize City, BZ">Belize City</option>
+        <option value="Belmopan, BZ">Belmopan</option>
+        <option value="Orange Walk, BZ">Orange Walk</option>
+        <option value="San Ignacio, BZ">San Ignacio</option>
+        <option value="Caye Caulker, BZ">Caye Caulker</option>
+        <option value="San Pedro, BZ">San Pedro</option>
+      </select><br>
+      <br>
+        <input type="submit" id="submit" class="submit">
+      </div>
+      <div id="directions-panel"></div>
+      </div>
+     
+      
+
+    </div>
+     <div class="form">
+       <form action="/@ViewBag.ThisCountry/SubmitTrip" method="POST">
+        <label name="TripName">Trip Name:</label><br>
+        <input type="text" name="TripName" id="TripName"><br>
+        <label name="Start">Start Location:</label><br>
+        <input type="text" name="Start" id="Start"><br>
+        <label name="Middle">Second Location:</label><br>
+        <input name="Middle" id="Middle"><br>
+        <label name="End">End Location:</label><br>
+        <input name="End" id="End"><br>
+        <label name="Length">Trip Length(days):</label><br>
+        <input type="number" name="Length" id="Length"><br>
+        <label name="About">Details:</label><br>
+        <textarea name="About" id="About"></textarea><br><br>
+        <input type="submit" class="submit">
+</form>
+      </div>
+    <div class="col-4">
+      <script>
+        function initMap() {
+          var directionsService = new google.maps.DirectionsService;
+          var directionsDisplay = new google.maps.DirectionsRenderer;
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 6,
+            center: {lat: 17.1898, lng: -88.4976}
+          });
+          directionsDisplay.setMap(map);
+
+          document.getElementById('submit').addEventListener('click', function() {
+            calculateAndDisplayRoute(directionsService, directionsDisplay);
+          });
+        }
+
+        function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+          var waypts = [];
+          var checkboxArray = document.getElementById('waypoints');
+          for (var i = 0; i < checkboxArray.length; i++) {
+            if (checkboxArray.options[i].selected) {
+              waypts.push({
+                location: checkboxArray[i].value,
+                stopover: true
+              });
+            }
+          }
+
+          directionsService.route({
+            origin: document.getElementById('start').value,
+            destination: document.getElementById('end').value,
+            waypoints: waypts,
+            optimizeWaypoints: true,
+            travelMode: 'DRIVING'
+          }, function(response, status) {
+            if (status === 'OK') {
+              directionsDisplay.setDirections(response);
+              var route = response.routes[0];
+              var summaryPanel = document.getElementById('directions-panel');
+              summaryPanel.innerHTML = '';
+              
+              for (var i = 0; i < route.legs.length; i++) {
+                var routeSegment = i + 1;
+                summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +
+                    '</b><br>';
+                summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
+                summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
+                summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
+                
+                
+                document.getElementById('Start').value = route.legs[0].start_address
+                document.getElementById('Middle').value = route.legs[1].start_address
+                /* add more legs?*/
+                document.getElementById('End').value = route.legs[i].end_address
+                
+                /*document.getElementById('Distance').value += route.legs[i].distance[0,0]*/
+                
+              }
+
+
+            } else {
+              window.alert('Directions request failed due to ' + status);
+            }
+          });
+        }
+      </script>
+      <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4GWy1sRHWj_cYZnw-7LrjnzXdMNnLV4M&callback=initMap&language=EN&region=EG">
+      </script>
+
+
+  <script type="text/javascript">
+    function autoFill() {
+      document.getElementById('input1').value = "My Text Input";
+      document.getElementById('input2').value = "Dropdown2";
+  
+      var radioElements = document.getElementsByName("input3");
+
+      for (var i=0; i<radioElements.length; i++) {
+        if (radioElements[i].getAttribute('value') == 'Radio3') {
+          radioElements[i].checked = true;
+        }
+      }
+    }
+  </script>
+  </div>    </div>
+  </html>

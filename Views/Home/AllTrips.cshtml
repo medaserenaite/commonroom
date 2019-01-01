@@ -1,0 +1,127 @@
+@model commonroom.Models.Trip
+
+    <div id="all"> <partial name="_NavBarPartial" />
+<partial name="_BackgroundPartial" />
+
+<!-- <style>
+    .row{
+        width:1350px;
+    }
+    .col-sm-3{
+        background: rgba(255,255,255,0.23);
+        margin: 20px;
+        padding:10px;
+        width: 200px;
+        height: 200px;
+        
+    }
+</style> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv='X-UA-compatible' content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="css/home.css">
+    <!-- <script type="text/javascript" src="js/index.js"></script> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+</head>
+<style>
+body{
+    background-color: gray;
+}
+
+a{
+  color:white;
+  text-decoration: none;
+}
+#card {
+  width: 350px;
+  border: 1px solid black;
+  color: black;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  transition: 0.3s;
+  opacity:0.7;
+}
+#cardmid{
+  
+  height: 200px;
+  background: rgba(0,0,0,0.8);
+  border: 5px transparent solid;
+  transition: 0.3s;
+  
+}
+#a{
+  text-decoration: none;
+  color: white;
+  font-family: 'Dekko';
+  font-size: 40px;
+  letter-spacing: 0.8rem;
+  text-shadow: 4px px 4px #000000;
+  opacity: 1;
+}
+h5{
+   color: white;
+  font-family: 'Dekko';
+  font-size: 20px;
+}
+#container{
+  padding:50px;
+}
+.col-sm{
+margin:25px;
+}
+#card:hover {opacity: 1}
+.comment{
+  font-size: 12px;
+}
+.card-title{
+  font-size: 30px;
+}
+.length{
+  background: rgba(0,0,0,0.5);
+  font-size: 15px;
+  letter-spacing: 0;
+  padding: 2px;
+}
+</style>
+
+
+
+<body>
+<br>
+  
+ <div id="container">
+ <div class="row">
+      @foreach (var trip in ViewBag.AllTrips)
+    { 
+    <div class="col-sm">
+      <div id="card">
+        <a id="a" href="/@trip.TripID">
+          <div id="cardmid" class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"> @trip.TripName</h5>   
+              <h6 class="length"> trip length: @trip.Length days</h6> 
+              
+              
+              </div>
+          </div>
+        </a>         
+      </div>
+    </div>
+      }
+</div>
+</body>
+</html>
+<video poster="" id="bgvid" playbackRate=0.5 playsinline autoplay muted loop>
+      <source src="videos/Seashore.mp4" type="video/webm">
+      <source src="videos/Seashore.mp4" type="video/mp4">
+      
+      </video>

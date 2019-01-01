@@ -1,0 +1,68 @@
+  @model commonroom.ViewModels.RegistrationViewModel
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv='X-UA-compatible' content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script type="text/javascript" src="js/index.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    
+</head>    
+        
+    <title>commonroom</title>
+
+
+<style>
+#polina #submit{
+    width: 300px;
+
+}
+#submit:hover{
+    background: rgba(255,255,255,0.5);
+}
+.toreg{
+    max-width: 300px;
+    margin:auto;
+}
+</style>
+<body>
+    <video poster="" id="bgvid" playsinline autoplay muted loop>
+      <source src="videos/pexels.mp4" type="video/webm">
+      <source src="videos/pexels.mp4" type="video/mp4">
+      </video>
+
+      <div id="polina">
+      <h1>commonroom</h1>
+      
+      <form asp-action="Registration" asp-controller="Home" method="POST">
+          <span asp-validation-for="FirstName"></span>
+          <label asp-for="FirstName">First Name</label><br>
+          <input asp-for="FirstName" type="text"><br>
+
+          <span asp-validation-for="LastName"></span>
+          <label asp-for="LastName">Last Name</label><br>
+          <input asp-for="LastName" type="text"><br>
+
+          <span asp-validation-for="Email"></span>
+          <label asp-for="Email">Email</label><br>
+          <input asp-for="Email" type="email"><br>
+
+          <span asp-validation-for="Password"></span>
+          <label asp-for="Password">Password</label><br>
+          <input asp-for="Password" type="password"><br>
+
+          <span asp-validation-for="Confirm"></span>
+          <label asp-for="Confirm">Confirm Password</label><br>
+          <input asp-for="Confirm" type="password"><br><br>
+
+          <input type="submit" value="submit">
+</form>
+      </div>
+</body>
+
+
+      
+
+
+ 

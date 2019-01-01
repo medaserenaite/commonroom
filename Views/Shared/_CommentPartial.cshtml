@@ -1,0 +1,37 @@
+@model commonroom.Models.Comment
+
+<style>
+    form{
+    background: rgba(0,0,0,0.5);
+    padding: 30px;    
+    color: white;
+    font-family: dekko;
+    letter-spacing: 4px;
+    border-radius: 25px;
+    text-shadow: 4px 4px 4px black;
+    width: 540px;
+    border: rgba(1,1,1,0.2) solid 2px;
+}
+
+#exampleFormControlTextarea1, .form-control{
+    width: 450px;
+    font-family: dekko;
+    opacity: 0.8;
+}
+</style>
+<br>
+    @foreach (var comment in @ViewBag.tripComments)
+    {
+<div id="commentlist">
+
+        <h3>@comment.CommentTheme</h3>
+        <h5>@comment.CommentText</h5>
+   
+</div> }
+<br>
+<form action="/@ViewBag.thisTrip.TripID/PostComment" method="POST">TOPIC:</label><br>
+    <input type="text" class="form-control" name="CommentTheme" placeholder="Topic"><br>
+    <label name="CommentText">COMMENT:</label><br>
+    <textarea class="form-control" id="exampleFormControlTextarea1" name="CommentText" rows="3" placeholder="enter comment here.."></textarea><br>
+    <input type="submit" class="submit">
+</form>
