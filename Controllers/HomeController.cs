@@ -36,8 +36,7 @@ namespace commonroom.Controllers
         {
             return View("New");
         }
-         //------------------------------------------------------------- R E G I S T E R ----------------------
-
+        //------------------------------------------------------------- R E G I S T E R ----------------------
         [HttpPost]
         [Route("register")]
         public IActionResult Registration(RegistrationViewModel reg)
@@ -72,15 +71,13 @@ namespace commonroom.Controllers
 
             return RedirectToAction("Home"); 
         }
-
         //---------------------------------------------------------------- L O G I N -----------------------
-
         [HttpPost ("login")]
         public IActionResult Login(LoginViewModel LoginUser) 
         {
             if(!ModelState.IsValid)
             {
-               return View("Index");
+                return View("Index");
             }
             User userinDB = _context.Users.FirstOrDefault(u=>u.Email == LoginUser.LoginEmail);
             
@@ -89,7 +86,6 @@ namespace commonroom.Controllers
                 ModelState.AddModelError("Email","Invalid Email");
                 return View("Index");
             }
-
             PasswordHasher<LoginViewModel> hasher = new PasswordHasher<LoginViewModel> ();
             var result = hasher.VerifyHashedPassword (LoginUser, userinDB.Password, LoginUser.LoginPassword);
             if (result == 0)
@@ -98,7 +94,6 @@ namespace commonroom.Controllers
                 return View ("Index");
             }
             User loggedIn = _context.Users.FirstOrDefault (u => u.Email == LoginUser.LoginEmail);
-            
             HttpContext.Session.SetInt32 ("ID", loggedIn.UserID);
             HttpContext.Session.SetString("UserName", loggedIn.FirstName);
             HttpContext.Session.SetString("Login", "true");
