@@ -1,6 +1,6 @@
 @model commonroom.Models.Trip
 
-    <div id="all"> <partial name="_NavBarPartial" />
+<div id="all"> <partial name="_NavBarPartial" />
 <partial name="_BackgroundPartial" />
 
 <!DOCTYPE html>
@@ -11,141 +11,138 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv='X-UA-compatible' content="ie=edge">
     <link rel="stylesheet" type="text/css" href="css/home.css">
-    <!-- <script type="text/javascript" src="js/index.js"></script> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
 </head>
+
 <style>
-body{
+    body{
     background-color: gray;
     background-image: url("images/thailand.jpg");
     background-repeat: no-repeat;
     background-size: cover;    
-
-}
-
-a{
-  color:white;
-  text-decoration: none;
-}
-#card {
-  width: 350px;
-  border: 1px solid black;
-  color: black;
-  padding: 16px 32px;
-  text-align: center;
-  font-size: 16px;
-  transition: 0.3s;
-  opacity:0.7;
-}
-#cardmid{
-  
-  height: 200px;
-  background: rgba(0,0,0,0.8);
-  border: 5px transparent solid;
-  transition: 0.3s;
-  
-}
-#a{
-  text-decoration: none;
-  color: white;
-  font-family: 'Dekko';
-  font-size: 40px;
-  letter-spacing: 0.8rem;
-  text-shadow: 4px px 4px #000000;
-  opacity: 1;
-}
-h5{
-   color: white;
-  font-family: 'Dekko';
-  font-size: 20px;
-}
-#container{
-  padding:50px;
-  background: rgba(1,1,1,0.3);
-  width: 90%;
-  margin: auto;
-  height:100%;
-}
-.col-sm{
-margin:25px;
-}
-#card:hover {opacity: 1}
-
-#box{
-    background: rgba(0,0,0,0.5);
-    padding: 20px;
-    font-family: Dekko;
-    font-size: 18px;
-    color: white;
-    text-shadow: 4px 4px 4px black;
-    height: 100%;
-    border: rgba(1,1,1,0.2) solid 2px;
-}
-.btn{
-OPACITY:0.8;
-letter-spacing: 0.3px;
-}
-.btn:hover{
-    opacity:0.5;
-}
-#commentlist{
-
-  background: #2A4E4C;
-    opacity: 0.8;
-    padding: 30px;    
-    color: black;
-    font-family: dekko;
-    letter-spacing: 4px;
-    border-radius: 25px;
-    text-shadow: 1px 1px 1px black;
-    width: 540px;
-    border: rgba(1,1,1,0.2) solid 2px;
-}
-#main{
-    background: rgba(0,0,0,0.5);
-    padding: 20px;
-    font-family: Dekko;
-    color: white;
-    text-shadow: 4px 4px 4px black;
-    border: rgba(1,1,1,0.2) solid 2px;
-}
-#tag{
+    }
+    a{
+    color:white;
     text-decoration: none;
-}
-span{
-    text-decoration: underline;
-}
-ul{
-    list-style-type: none;
-    margin-left: -20px;
-}
-li{
-    margin-bottom: 5px;
-}
-.submit { 
-  display: block;
-  width: 80%;
-  padding: .4rem;
-  border: none; 
-  margin: 1rem auto; 
-  font-size: 1.3rem;
-  background: rgba(255,255,255,0.23);
-  color: #fff;
-  border-radius: 3px; 
-  cursor: pointer;
-  transition: .3s background;
-}
-.submit:hover { 
-   background: rgba(0,0,0,0.5);
-}
-h6{
+    }
+    #card {
+    width: 350px;
+    border: 1px solid black;
+    color: black;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    transition: 0.3s;
+    opacity:0.7;
+    }
+    #cardmid{
+    
+    height: 200px;
+    background: rgba(0,0,0,0.8);
+    border: 5px transparent solid;
+    transition: 0.3s;
+    
+    }
+    #a{
+    text-decoration: none;
+    color: white;
+    font-family: 'Dekko';
+    font-size: 40px;
+    letter-spacing: 0.8rem;
+    text-shadow: 4px px 4px #000000;
+    opacity: 1;
+    }
+    h5{
+    color: white;
+    font-family: 'Dekko';
+    font-size: 20px;
+    }
+    #container{
+    padding:50px;
     background: rgba(1,1,1,0.3);
-    padding: 5px;
-}
-span{
-    text-decoration:underline;
-}
+    width: 90%;
+    margin: auto;
+    height:100%;
+    }
+    .col-sm{
+    margin:25px;
+    }
+    #card:hover {opacity: 1}
+
+    #box{
+        background: rgba(0,0,0,0.5);
+        padding: 20px;
+        font-family: Dekko;
+        font-size: 18px;
+        color: white;
+        text-shadow: 4px 4px 4px black;
+        height: 100%;
+        border: rgba(1,1,1,0.2) solid 2px;
+    }
+    .btn{
+    OPACITY:0.8;
+    letter-spacing: 0.3px;
+    }
+    .btn:hover{
+        opacity:0.5;
+    }
+    #commentlist{
+    background: #2A4E4C;
+        opacity: 0.8;
+        padding: 30px;    
+        color: black;
+        font-family: dekko;
+        letter-spacing: 4px;
+        border-radius: 25px;
+        text-shadow: 1px 1px 1px black;
+        width: 540px;
+        border: rgba(1,1,1,0.2) solid 2px;
+    }
+    #main{
+        background: rgba(0,0,0,0.5);
+        padding: 20px;
+        font-family: Dekko;
+        color: white;
+        text-shadow: 4px 4px 4px black;
+        border: rgba(1,1,1,0.2) solid 2px;
+    }
+    #tag{
+        text-decoration: none;
+    }
+    span{
+        text-decoration: underline;
+    }
+    ul{
+        list-style-type: none;
+        margin-left: -20px;
+    }
+    li{
+        margin-bottom: 5px;
+    }
+    .submit { 
+    display: block;
+    width: 80%;
+    padding: .4rem;
+    border: none; 
+    margin: 1rem auto; 
+    font-size: 1.3rem;
+    background: rgba(255,255,255,0.23);
+    color: #fff;
+    border-radius: 3px; 
+    cursor: pointer;
+    transition: .3s background;
+    }
+    .submit:hover { 
+    background: rgba(0,0,0,0.5);
+    }
+    h6{
+        background: rgba(1,1,1,0.3);
+        padding: 5px;
+    }
+    span{
+        text-decoration:underline;
+    }
 </style>
 
 
